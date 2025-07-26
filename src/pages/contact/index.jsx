@@ -22,9 +22,11 @@ function Contact() {
     alert("Thank you for reaching out! We will get back to you soon.");
     setFormData({ name: "", email: "", message: "" });
   }
-
+``
   return (
-    <section className="max-w-md mx-auto py-10 px-4">
+    <>
+    <section className="h-[100vh] bg-linear-to-b from-cyan-500 to-blue-500">
+    <div className="max-w-md mx-auto py-10 px-4">
       <h1 className="text-4xl font-extrabold text-blue-700 mb-6">Contact Us</h1>
 
       <form onSubmit={handleSubmit} className="space-y-6">
@@ -83,7 +85,9 @@ function Contact() {
           Send Message
         </button>
       </form>
+    </div>
     </section>
+    </>
   );
 }
 

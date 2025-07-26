@@ -1,31 +1,23 @@
 import {createBrowserRouter, createRoutesFromElements, Route, RouterProvider} from "react-router-dom";
 import Layout from "./Layout";
-import Home from "./pages/home/Home";
-import About from "./pages/about/About";
-import Contact from "./pages/contact/Contact";
-import Products from "./pages/home/Products";
-import Cart from "./pages/home/Cart";
-import HomeLayout from "./pages/home/HomeLayout";
-import None from "./pages/none/None";
-import Login from "./pages/login/Login";
+import Home from "./pages/home";
+import About from "./pages/about";
+import Contact from "./pages/contact";
+import Login from "./pages/login";
 import PrivateRoute from "./pages/admin/PrivateRoute";
 import AdminDashboard from "./pages/admin/AdminDashboard";
+import NotFound from "./pages/none";
+import Cart from "./pages/home/Cart";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
       <Route path="/" element={<Layout />}>
-      {/* Home */}
-      <Route element={<HomeLayout />}>
-        <Route index element={<Home />}/>
-        <Route path="home" element={<Home />}/>
-        <Route path="products" element={<Products />}/>
-        <Route path="cart" element={<Cart />}/>
-      </Route>
-      {/* Other pages */}
+      <Route index element={<Home />}/>
       <Route path="about" element={<About />}/>
       <Route path="contact" element={<Contact />}/>
-      <Route path="*" element={<None />}/>
+      <Route path="cart" element={<Cart />}/>
+      <Route path="*" element={<NotFound/>}/>
       <Route path="login" element={<Login />}/>
       <Route path="admin/dashboard" element={
         <PrivateRoute>

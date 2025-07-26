@@ -18,7 +18,7 @@ function Products() {
   }, []);
 
   return (
-    <div className="p-10 min-h-screen bg-gray-50 ml-40">
+    <div className="p-10 min-h-screen bg-gray-50">
       <h1 className="text-2xl font-bold mb-6">Products of Fakestore</h1>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">

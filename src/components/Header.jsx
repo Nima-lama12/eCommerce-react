@@ -1,14 +1,14 @@
 import React from 'react'
-import { useState } from "react";
 import { NavLink } from 'react-router-dom'
+import Logo from "../assets/Fakestore-logo.png"
+import Cart from "../assets/cart.png"
 
 function Header() {
-      const [showTooltip, setShowTooltip] = useState(false); // 🔥 Define state here
   return (
     <>
-    <header className="bg-gray-300 flex items-center justify-around shadow-2xl sticky top-0 z-60">
+    <header className="bg-blue-900 text-white flex items-center justify-around shadow-2xl sticky top-0 z-60">
         <div>
-            <img src="https://zemez.io/html/wp-content/uploads/sites/9/2017/10/logo.png" alt="" className="h-20 w-60" />
+            <img src={Logo} alt="" className='w-25 h-25'/>
         </div>
     <ul className="w-100 list-none flex justify-around">
         <li>
@@ -18,7 +18,7 @@ function Header() {
             }
             to="/"
             >
-                Home
+                Products
             </NavLink>
         </li>
         <li>
@@ -38,20 +38,13 @@ function Header() {
             </NavLink>
         </li>
     </ul>
-    <div className="relative inline-block">
-      <button
-        className="border-1 rounded-2xl bg-red-500 text-white px-3 py-2"
-        onMouseEnter={() => setShowTooltip(true)}
-        onMouseLeave={() => setShowTooltip(false)}
-      >
-        admin login
-      </button>
-
-      {showTooltip && (
-        <div className="absolute top-full mb-2 w-max px-3 py-2 border rounded-2xl text-white bg-red-300">
-            !!  Only for admin
-        </div>
-      )}
+    <div>
+      <NavLink 
+      className={({ isActive, isPending}) => 
+      isPending ? "pending" : isActive ? "bg-red-300" : "" } 
+      to="/cart">
+        <img src={Cart} alt="" className='h-10 w-10'/>
+      </NavLink>
     </div>
     </header>
     </>
