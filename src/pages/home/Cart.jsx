@@ -2,7 +2,7 @@
 function Cart() {
   return (
     <>
-    <h1>This is Cart page</h1>
+    <h1>This page in UnderConstruction</h1>
     </>
   )
 }
