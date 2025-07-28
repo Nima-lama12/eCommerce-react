@@ -1,28 +1,14 @@
-import { useEffect, useState } from "react";
+import { useFetchData } from "../../hooks/useFetchData";
 
 function Products() {
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const res = await fetch("https://fakestoreapi.com/products");
-        const data = await res.json();
-        setProducts(data);
-      } catch (error) {
-        console.error("Failed to fetch products:", error);
-      }
-    }
-
-    fetchData();
-  }, []);
+  const { data } = useFetchData([]);
 
   return (
     <div className="p-10 min-h-screen bg-gray-50">
       <h1 className="text-2xl font-bold mb-6">Products of Fakestore</h1>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {products.map((item) => (
+        {data.map((item) => (
           <div
             key={item.id}
             className="bg-white p-4 rounded-xl shadow-md hover:shadow-xl transition duration-300"
